@@ -1,9 +1,9 @@
 from sqlalchemy import select
 
-from db.models import async_session
-from db.models import Request
+from src.db.models import async_session
+from src.db.models import Request
 
-from currency_getter.get_api_data import get_data
+from src.currency_getter.get_api_data import get_data
 
 
 async def get_curr_name():

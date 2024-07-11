@@ -1,5 +1,5 @@
-from db.models import async_session
-from db.models import User, Request
+from src.db.models import async_session
+from src.db.models import User, Request
 from sqlalchemy import select
 
 

@@ -4,9 +4,9 @@ import logging
 from aiogram import Bot
 from aiogram import Dispatcher
 
-from bot import config
-from bot.routers import router as main_router
-from db.models import async_main as run_db
+from src.bot import config
+from src.bot.routers import router as main_router
+from src.db.models import async_main as run_db
 
 bot = Bot(token=config.BOT_TOKEN)
 

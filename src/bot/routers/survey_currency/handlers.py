@@ -3,8 +3,8 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 
 from .states import Survey
-from db.requests import set_user, set_currency_request
-from currency_getter import get_currency
+from src.db.requests import set_user, set_currency_request
+from src.currency_getter import get_currency
 
 router = Router(name=__name__)
 

@@ -5,7 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncAttrs, async_sessionmaker, create_async_
 
 DB_USER = 'admin'
 DB_PASS = 'admin'
-DB_HOST = 'postgres'
+DB_HOST = 'localhost'
 DB_PORT = '5432'
 DB_NAME = 'cc_db'
 
