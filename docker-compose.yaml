@@ -1,0 +1,40 @@
+version: '3.2'
+services:
+  postgres:
+    container_name: cc_database
+    image: postgres
+    environment:
+      - POSTGRES_DB=cc_db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - '5432:5432'
+
+  redis:
+    container_name: redis
+    image: redis:latest
+    ports:
+      - '6379:6379'
+
+  celery:
+    container_name: celery
+    build:
+      context: ./src
+    command: celery -A tasks.tasks:celery_task worker --loglevel=INFO
+    depends_on:
+      - redis
+
+  celery-beat:
+    container_name: celery-beat
+    build:
+      context: ./src
+    command: celery -A tasks.tasks:celery_task beat --loglevel=INFO
+    depends_on:
+      - celery
+
+  bot:
+    container_name: bot
+    build:
+      context: ./src
+    depends_on:
+      - postgres
